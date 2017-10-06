@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Counter.css';
+import robot from 'robotjs';
 
 class Counter extends Component {
   props: {
@@ -13,6 +14,9 @@ class Counter extends Component {
   };
 
   render() {
+    function action() {
+      robot.keyTap('a');
+    }
     const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
     return (
       <div>
@@ -25,7 +29,7 @@ class Counter extends Component {
           {counter}
         </div>
         <div className={styles.btnGroup}>
-          <button className={styles.btn} onClick={increment} data-tclass="btn">
+          <button className={styles.btn} onClick={action} data-tclass="btn">
             <i className="fa fa-plus" />
           </button>
           <button className={styles.btn} onClick={decrement} data-tclass="btn">
